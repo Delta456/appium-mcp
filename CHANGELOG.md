@@ -1,3 +1,9 @@
+## [1.22.0](https://github.com/appium/appium-mcp/compare/v1.21.2...v1.22.0) (2026-03-03)
+
+### Features
+
+* **session:** add appium_lock and appium_unlock tools ([#188](https://github.com/appium/appium-mcp/issues/188)) ([c6a4e3a](https://github.com/appium/appium-mcp/commit/c6a4e3a4b237e2af2a3f3168259c786bc655e164))
+
 ## [1.21.2](https://github.com/appium/appium-mcp/compare/v1.21.1...v1.21.2) (2026-03-02)
 
 ### Miscellaneous Chores
