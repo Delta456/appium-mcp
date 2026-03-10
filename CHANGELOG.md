@@ -1,3 +1,9 @@
+## [1.24.1](https://github.com/appium/appium-mcp/compare/v1.24.0...v1.24.1) (2026-03-10)
+
+### Bug Fixes
+
+* await `getElementText` to return actual text ([#198](https://github.com/appium/appium-mcp/issues/198)) ([6fc200f](https://github.com/appium/appium-mcp/commit/6fc200fbb1df98b9237cb13e77d33f78c04dcd38))
+
 ## [1.24.0](https://github.com/appium/appium-mcp/compare/v1.23.1...v1.24.0) (2026-03-10)
 
 ### Features
