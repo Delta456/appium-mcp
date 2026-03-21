@@ -1,3 +1,13 @@
+## [1.32.0](https://github.com/appium/appium-mcp/compare/v1.31.0...v1.32.0) (2026-03-21)
+
+### Features
+
+* add clipboard read/write tools (appium_get_clipboard & appium_set_clipboard) ([#220](https://github.com/appium/appium-mcp/issues/220)) ([d6f1e99](https://github.com/appium/appium-mcp/commit/d6f1e99449f0dff957d7a3cd55069e3dff50da6c))
+
+### Miscellaneous Chores
+
+* use xcuitest reference ([#221](https://github.com/appium/appium-mcp/issues/221)) ([010a157](https://github.com/appium/appium-mcp/commit/010a157be1a102fbd22980a10c6b9af6df6a995f))
+
 ## [1.31.0](https://github.com/appium/appium-mcp/compare/v1.30.0...v1.31.0) (2026-03-21)
 
 ### Features
