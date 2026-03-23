@@ -31,7 +31,9 @@ jobs:
         name: Install dependencies
       - run: npm run build
         name: Build
-      - run: npm run zip-assets
+      - run: |
+          npm run zip-assets
+          rm -rf src/resources/submodules
         name: Zip submodules for distribution
       - run: npx semantic-release
         env:
