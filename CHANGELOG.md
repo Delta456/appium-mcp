@@ -1,3 +1,9 @@
+## [1.44.0](https://github.com/appium/appium-mcp/compare/v1.43.0...v1.44.0) (2026-04-03)
+
+### Features
+
+* **app-managment:** implement quering app state ([#241](https://github.com/appium/appium-mcp/issues/241)) ([5f1f737](https://github.com/appium/appium-mcp/commit/5f1f737eae56754ca212339a99c11af99be19119))
+
 ## [1.43.0](https://github.com/appium/appium-mcp/compare/v1.42.0...v1.43.0) (2026-04-03)
 
 ### Features
