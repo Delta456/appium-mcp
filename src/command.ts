@@ -57,12 +57,12 @@ export async function getSessionDriverSettings(
  */
 export async function updateSessionDriverSettings(
   driver: DriverInstance,
-  settings: Record<string, unknown>
+  settings: StringRecord<unknown>
 ): Promise<void> {
   if (isAndroidUiautomator2DriverSession(driver)) {
     await driver.updateSettings(settings as never);
   } else if (isXCUITestDriverSession(driver)) {
-    await driver.updateSettings(settings as never);
+    await driver.updateSettings(settings);
   } else {
     await (driver as Client).updateSettings(settings);
   }
