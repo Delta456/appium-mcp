@@ -1,3 +1,10 @@
+## [1.44.1](https://github.com/appium/appium-mcp/compare/v1.44.0...v1.44.1) (2026-04-04)
+
+### Miscellaneous Chores
+
+* modify the type ([c0fba20](https://github.com/appium/appium-mcp/commit/c0fba20d2f144b16980187f8950f00fd01d6b941))
+* modify types more ([737b58e](https://github.com/appium/appium-mcp/commit/737b58ef60d07f23513fb0c6befbca9638c31178))
+
 ## [1.44.0](https://github.com/appium/appium-mcp/compare/v1.43.0...v1.44.0) (2026-04-03)
 
 ### Features
