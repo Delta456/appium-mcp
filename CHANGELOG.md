@@ -1,3 +1,10 @@
+## [1.46.0](https://github.com/appium/appium-mcp/compare/v1.45.0...v1.46.0) (2026-04-07)
+
+### Features
+
+* add `appium_get_element_attribute` tool to retrieve element attributes ([#246](https://github.com/appium/appium-mcp/issues/246)) ([e0d4b5f](https://github.com/appium/appium-mcp/commit/e0d4b5fcecc7e958b8bad75960c0e91ed99c3c9a))
+* **uninstall-app:** allow keeping data for apps in Android ([#245](https://github.com/appium/appium-mcp/issues/245)) ([272fad9](https://github.com/appium/appium-mcp/commit/272fad93b8878244611c070f41aae189778120e9))
+
 ## [1.45.0](https://github.com/appium/appium-mcp/compare/v1.44.1...v1.45.0) (2026-04-06)
 
 ### Features
