@@ -1,3 +1,9 @@
+## [1.47.0](https://github.com/appium/appium-mcp/compare/v1.46.0...v1.47.0) (2026-04-07)
+
+### Features
+
+* include appium-skills for troubleshoot/setup ([#244](https://github.com/appium/appium-mcp/issues/244)) ([ed7e2db](https://github.com/appium/appium-mcp/commit/ed7e2db32811388e5ab7e535b985361feec53d69))
+
 ## [1.46.0](https://github.com/appium/appium-mcp/compare/v1.45.0...v1.46.0) (2026-04-07)
 
 ### Features
