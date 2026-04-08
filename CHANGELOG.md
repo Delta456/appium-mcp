@@ -1,3 +1,9 @@
+## [1.50.0](https://github.com/appium/appium-mcp/compare/v1.49.1...v1.50.0) (2026-04-08)
+
+### Features
+
+* **app-management:** implement app parameter for human friendly control ([#251](https://github.com/appium/appium-mcp/issues/251)) ([24ac94d](https://github.com/appium/appium-mcp/commit/24ac94d28d18f70255e8cfd053aee4627e6c2afd))
+
 ## [1.49.1](https://github.com/appium/appium-mcp/compare/v1.49.0...v1.49.1) (2026-04-08)
 
 ### Bug Fixes
