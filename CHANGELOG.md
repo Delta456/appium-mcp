@@ -1,3 +1,9 @@
+## [1.59.0](https://github.com/appium/appium-mcp/compare/v1.58.0...v1.59.0) (2026-04-17)
+
+### Features
+
+* rename appium_app to appium_app_lifecycle ([#273](https://github.com/appium/appium-mcp/issues/273)) ([d524036](https://github.com/appium/appium-mcp/commit/d5240366604a988fdc56e5e1d218f71743f344de))
+
 ## [1.58.0](https://github.com/appium/appium-mcp/compare/v1.57.0...v1.58.0) (2026-04-17)
 
 ### Features
