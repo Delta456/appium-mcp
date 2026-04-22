@@ -1,3 +1,9 @@
+## [1.62.0](https://github.com/appium/appium-mcp/compare/v1.61.0...v1.62.0) (2026-04-22)
+
+### Features
+
+* **app-management:** export permissions to server and add name parameter ([#270](https://github.com/appium/appium-mcp/issues/270)) ([a6d8e1e](https://github.com/appium/appium-mcp/commit/a6d8e1e95b3374cb33237168dfb2b5d761563acc))
+
 ## [1.61.0](https://github.com/appium/appium-mcp/compare/v1.60.2...v1.61.0) (2026-04-21)
 
 ### Features
