@@ -18,6 +18,6 @@ export async function listSessionsAction(): Promise<any> {
     .join('\n');
 
   return textResult(
-    `Active session: ${activeSessionId || 'Unknown'}\nSelect with: select_session { "sessionId": "..." }\n\nSessions:\n${sessionSummary}`
+    `Active session: ${activeSessionId || 'Unknown'}\nSelect with: action=select { "sessionId": "..." }\n\nSessions:\n${sessionSummary}`
   );
 }

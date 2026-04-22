@@ -4,15 +4,15 @@ import { createSessionAction } from './create-session.js';
 import { deleteSessionAction } from './delete-session.js';
 import { listSessionsAction } from './list-sessions.js';
 import { selectSessionAction } from './select-session.js';
-import { errorResult } from '../tool-response.js';
+import { errorResult, toolErrorMessage } from '../tool-response.js';
 
 const SESSION_ACTIONS = ['create', 'delete', 'list', 'select'] as const;
 
 const CREATE_SESSION_DESCRIPTION = `Create a new Appium session with Android, iOS or any device/driver Appium supports.
       WORKFLOW FOR LOCAL SERVERS (no remoteServerUrl):
       - Use select_device tool FIRST to discover devices and let the user choose platform and device
-      - Then call create_session with the selected platform
-      - For iOS simulators, call prepare_ios_simulator before create_session
+      - Then call action=create with the selected platform
+      - For iOS simulators, call prepare_ios_simulator before action=create
       - DO NOT assume or default to any platform
       WORKFLOW FOR REMOTE SERVERS (remoteServerUrl provided):
       - SKIP select_device tool entirely
@@ -74,33 +74,39 @@ export default function session(server: FastMCP): void {
       openWorldHint: false,
     },
     execute: async (args: z.infer<typeof schema>): Promise<any> => {
-      if (args.action === 'create') {
-        if (!args.platform) {
-          return errorResult('platform is required for create action');
+      try {
+        if (args.action === 'create') {
+          if (!args.platform) {
+            return errorResult('platform is required for create action');
+          }
+          return createSessionAction({
+            platform: args.platform,
+            capabilities: args.capabilities,
+            remoteServerUrl: args.remoteServerUrl,
+          });
         }
-        return createSessionAction({
-          platform: args.platform,
-          capabilities: args.capabilities,
-          remoteServerUrl: args.remoteServerUrl,
-        });
-      }
 
-      if (args.action === 'delete') {
-        return deleteSessionAction(args.sessionId);
-      }
-
-      if (args.action === 'list') {
-        return listSessionsAction();
-      }
-
-      if (args.action === 'select') {
-        if (!args.sessionId) {
-          return errorResult('sessionId is required for select action');
+        if (args.action === 'delete') {
+          return deleteSessionAction(args.sessionId);
         }
-        return selectSessionAction(args.sessionId);
-      }
 
-      return errorResult(`Unknown action: ${args.action}`);
+        if (args.action === 'list') {
+          return listSessionsAction();
+        }
+
+        if (args.action === 'select') {
+          if (!args.sessionId) {
+            return errorResult('sessionId is required for select action');
+          }
+          return selectSessionAction(args.sessionId);
+        }
+
+        return errorResult(`Unknown action: ${args.action}`);
+      } catch (err: unknown) {
+        return errorResult(
+          `Session action '${args.action}' failed: ${toolErrorMessage(err)}`
+        );
+      }
     },
   });
 }
