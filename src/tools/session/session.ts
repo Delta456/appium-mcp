@@ -64,7 +64,7 @@ const schema = z.object({
 
 export default function session(server: FastMCP): void {
   server.addTool({
-    name: 'appium_session',
+    name: 'appium_session_management',
     description:
       'Manage Appium sessions. Use action=create to start a session, delete to stop one, list to see all active sessions, or select to switch the active session.',
     parameters: schema,

@@ -92,9 +92,9 @@ async function getToolExecute() {
   )?.[0];
 }
 
-// ── appium_session tool tests ─────────────────────────────────────────────────
+// ── appium_session_management tool tests ─────────────────────────────────────────────────
 
-describe('appium_session tool', () => {
+describe('appium_session_management tool', () => {
   describe('action: list', () => {
     test('returns "no sessions" when none exist', async () => {
       const tool = await getToolExecute();
