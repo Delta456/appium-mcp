@@ -1,3 +1,9 @@
+## [1.64.0](https://github.com/appium/appium-mcp/compare/v1.63.1...v1.64.0) (2026-04-23)
+
+### Features
+
+* **session:** consolidate session tools ([#283](https://github.com/appium/appium-mcp/issues/283)) ([edc252e](https://github.com/appium/appium-mcp/commit/edc252e6cab5786cf394d47cf6f9bb06d310bd5b))
+
 ## [1.63.1](https://github.com/appium/appium-mcp/compare/v1.63.0...v1.63.1) (2026-04-22)
 
 ### Miscellaneous Chores
