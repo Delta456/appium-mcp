@@ -14,7 +14,7 @@ This directory contains all MCP tools available in MCP Appium.
 - `select-device.ts` - Discover devices and select one (auto-selects if only one found)
 - `device-control.ts` - Device controls in one tool (`appium_mobile_device_control`; `action=lock|unlock|shake|open_notifications`)
 - `file-transfer.ts` - Push/pull files on device (`appium_mobile_file` with `action=push|pull`)
-- `driver-settings.ts` - Read/update Appium driver session settings (`appium_get_settings`, `appium_update_settings`)
+- `driver-settings.ts` - Read/update Appium driver session settings (`appium_driver_settings`, `action`: `get` \| `update`)
 
 ### iOS Setup (`ios/`)
 
