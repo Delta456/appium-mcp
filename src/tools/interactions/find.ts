@@ -74,7 +74,9 @@ export default function findElement(server: FastMCP): void {
 - AI_VISION_API_BASE_URL: Vision model API endpoint (required)
 - AI_VISION_API_KEY: API authentication key (required)
 - AI_VISION_MODEL: Model name (optional, defaults to Qwen3-VL-235B-A22B-Instruct)
-- AI_VISION_COORD_TYPE: Coordinate type (optional, defaults to normalized)`,
+- AI_VISION_COORD_TYPE: Coordinate type (optional, defaults to normalized)
+
+**Scrolling until an element appears**: use \`appium_gesture\` with \`action=scroll_to_element\` (same strategy + selector), not this tool.`,
     parameters: findElementSchema,
     annotations: {
       readOnlyHint: true,

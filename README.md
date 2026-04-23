@@ -335,8 +335,8 @@ The default regex pattern allows any URL that starts with `http://` or `https://
 
 | Tool                  | Description                                                                                  |
 | --------------------- | -------------------------------------------------------------------------------------------- |
-| `appium_find_element` | Find a specific element using traditional locator strategies (xpath, id, accessibility id, etc.) **OR** AI-powered natural language descriptions (e.g., "yellow search button at bottom"). Supports both traditional and AI modes. |
-| `appium_gesture`      | Perform a touch gesture. `action` = `tap`, `double_tap`, `long_press`, `scroll`, `swipe`, `pinch_zoom`, or `scroll_to_element`. Supports element UUIDs (including AI-found `ai-element:` UUIDs) and raw coordinates. For swipe, use `speed` = `slow` \| `normal` \| `fast` (fast for pull-to-refresh). |
+| `appium_find_element` | Find a specific element using traditional locator strategies (xpath, id, accessibility id, etc.) **OR** AI-powered natural language descriptions (e.g., "yellow search button at bottom"). To scroll until an element appears, use **`appium_gesture`** with **`action=scroll_to_element`** (same `strategy` / `selector` as find). |
+| `appium_gesture`      | Perform a touch gesture. `action` = `tap`, `double_tap`, `long_press`, `scroll`, `swipe`, `pinch_zoom`, or **`scroll_to_element`**. **`scroll_to_element`** scrolls vertically (`direction` = `up` \| `down`) until the locator matches, **page source stops changing** after a scroll (end of list), or **`maxScrollAttempts`** (default 10, max 80). Optional **`scrollDistance`** (0.05–1) or **`scrollDistancePreset`** = `small` \| `medium` \| `large`. Supports element UUIDs and raw coordinates for other actions. For swipe, use `speed` = `slow` \| `normal` \| `fast` (fast for pull-to-refresh). |
 | `appium_drag_and_drop` | Perform a drag and drop gesture from a source location to a target location (supports element-to-element, element-to-coordinates, coordinates-to-element, and coordinates-to-coordinates) |
 | `appium_perform_actions` | Execute raw W3C Actions API sequences for custom multi-touch gestures (rotate, three-finger swipe, edge swipes, precise timing). Prefer `appium_gesture` for standard gestures. |
 | `appium_set_value`    | Enter text into an input field                                                               |
@@ -412,6 +412,23 @@ This example demonstrates a complete e-commerce checkout flow that can be automa
   }
 }
 ```
+
+**Scroll until element is on screen (`appium_gesture` / `scroll_to_element`):**
+```json
+{
+  "tool": "appium_gesture",
+  "arguments": {
+    "action": "scroll_to_element",
+    "strategy": "xpath",
+    "selector": "//*[contains(@text,'My header')]",
+    "direction": "down",
+    "maxScrollAttempts": 40,
+    "scrollDistancePreset": "medium"
+  }
+}
+```
+
+Use **`scrollDistance`** (0.05–1) instead of **`scrollDistancePreset`** when you want an exact fraction. Then call **`appium_find_element`** with the same `strategy` / `selector` to obtain the element id.
 
 **AI Mode (Natural Language):**
 ```json
