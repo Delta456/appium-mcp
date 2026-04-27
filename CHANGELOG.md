@@ -1,3 +1,9 @@
+## [1.67.1](https://github.com/appium/appium-mcp/compare/v1.67.0...v1.67.1) (2026-04-27)
+
+### Bug Fixes
+
+* support zoom in/out via custom coords ([#291](https://github.com/appium/appium-mcp/issues/291)) ([251e144](https://github.com/appium/appium-mcp/commit/251e144f9a21ca0909df93ba52bc8b748e4e20b4))
+
 ## [1.67.0](https://github.com/appium/appium-mcp/compare/v1.66.0...v1.67.0) (2026-04-23)
 
 ### Features
