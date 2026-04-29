@@ -1,3 +1,9 @@
+## [1.70.0](https://github.com/appium/appium-mcp/compare/v1.69.1...v1.70.0) (2026-04-29)
+
+### Features
+
+* **tools:** single appium_mobile_keyboard tool ([#293](https://github.com/appium/appium-mcp/issues/293)) ([1214950](https://github.com/appium/appium-mcp/commit/1214950819b1b9edc4c73c9ea2ebc120da91ad7b))
+
 ## [1.69.1](https://github.com/appium/appium-mcp/compare/v1.69.0...v1.69.1) (2026-04-29)
 
 ### Bug Fixes
