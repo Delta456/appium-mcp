@@ -1,3 +1,9 @@
+## [1.71.1](https://github.com/appium/appium-mcp/compare/v1.71.0...v1.71.1) (2026-04-30)
+
+### Bug Fixes
+
+* use arguments[0].click() for iOS WebView ([#211](https://github.com/appium/appium-mcp/issues/211)) ([e806985](https://github.com/appium/appium-mcp/commit/e8069856bd5e901b7df38a1bcd2eaa086fe77b69))
+
 ## [1.71.0](https://github.com/appium/appium-mcp/compare/v1.70.0...v1.71.0) (2026-04-30)
 
 ### Features
