@@ -1,3 +1,9 @@
+## [1.71.5](https://github.com/appium/appium-mcp/compare/v1.71.4...v1.71.5) (2026-04-30)
+
+### Bug Fixes
+
+* enhance driver type checks for session validation ([#304](https://github.com/appium/appium-mcp/issues/304)) ([a6d60b4](https://github.com/appium/appium-mcp/commit/a6d60b43b11b0d90504aec74a1fbbc541ee6f019))
+
 ## [1.71.4](https://github.com/appium/appium-mcp/compare/v1.71.3...v1.71.4) (2026-04-30)
 
 ### Bug Fixes
