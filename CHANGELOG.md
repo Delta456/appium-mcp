@@ -1,3 +1,9 @@
+## [1.71.3](https://github.com/appium/appium-mcp/compare/v1.71.2...v1.71.3) (2026-04-30)
+
+### Miscellaneous Chores
+
+* update appium-skills ([#302](https://github.com/appium/appium-mcp/issues/302)) ([3b5bc71](https://github.com/appium/appium-mcp/commit/3b5bc714676be106cf1dec7a9cb25851504974cb))
+
 ## [1.71.2](https://github.com/appium/appium-mcp/compare/v1.71.1...v1.71.2) (2026-04-30)
 
 ### Bug Fixes
