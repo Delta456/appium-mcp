@@ -1,3 +1,9 @@
+## [1.71.0](https://github.com/appium/appium-mcp/compare/v1.70.0...v1.71.0) (2026-04-30)
+
+### Features
+
+* **session:** add attach/detach support with owned/attached session … ([#287](https://github.com/appium/appium-mcp/issues/287)) ([d52e1bf](https://github.com/appium/appium-mcp/commit/d52e1bfc2b6b2181cda9190f3a51dadc37277b42)), closes [#274](https://github.com/appium/appium-mcp/issues/274)
+
 ## [1.70.0](https://github.com/appium/appium-mcp/compare/v1.69.1...v1.70.0) (2026-04-29)
 
 ### Features
