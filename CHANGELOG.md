@@ -1,3 +1,9 @@
+## [1.71.4](https://github.com/appium/appium-mcp/compare/v1.71.3...v1.71.4) (2026-04-30)
+
+### Bug Fixes
+
+* click for session ([#303](https://github.com/appium/appium-mcp/issues/303)) ([55e0bd6](https://github.com/appium/appium-mcp/commit/55e0bd6f5bdcb9540ac83c9e62128f25d52450bb))
+
 ## [1.71.3](https://github.com/appium/appium-mcp/compare/v1.71.2...v1.71.3) (2026-04-30)
 
 ### Miscellaneous Chores
