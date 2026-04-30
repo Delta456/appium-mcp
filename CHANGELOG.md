@@ -1,3 +1,9 @@
+## [1.71.2](https://github.com/appium/appium-mcp/compare/v1.71.1...v1.71.2) (2026-04-30)
+
+### Bug Fixes
+
+* fix lint more ([#301](https://github.com/appium/appium-mcp/issues/301)) ([f10f8c0](https://github.com/appium/appium-mcp/commit/f10f8c0b449a93ad71c64e466ad31eb5f2d3ed46))
+
 ## [1.71.1](https://github.com/appium/appium-mcp/compare/v1.71.0...v1.71.1) (2026-04-30)
 
 ### Bug Fixes
