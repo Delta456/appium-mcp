@@ -30,32 +30,6 @@ const schema = z.object({
 
 type KeyboardArgs = z.infer<typeof schema>;
 
-async function handleHide(
-  sessionId: string | undefined,
-  keys: string[] | undefined
-): Promise<ContentResult> {
-  const resolved = resolveDriver(sessionId);
-  if (!resolved.ok) {
-    return resolved.result;
-  }
-  const { driver } = resolved;
-
-  const params = keys && keys.length > 0 ? { keys } : {};
-  await execute(driver, 'mobile: hideKeyboard', params);
-  return textResult('Keyboard dismissed successfully.');
-}
-
-async function handleIsShown(sessionId?: string): Promise<ContentResult> {
-  const resolved = resolveDriver(sessionId);
-  if (!resolved.ok) {
-    return resolved.result;
-  }
-  const { driver } = resolved;
-
-  const keyboardShown = await execute(driver, 'mobile: isKeyboardShown', {});
-  return textResult(JSON.stringify({ keyboardShown }, null, 2));
-}
-
 export default function keyboard(server: FastMCP): void {
   server.addTool({
     name: 'appium_mobile_keyboard',
@@ -89,4 +63,30 @@ export default function keyboard(server: FastMCP): void {
       }
     },
   });
+}
+
+async function handleHide(
+  sessionId: string | undefined,
+  keys: string[] | undefined
+): Promise<ContentResult> {
+  const resolved = resolveDriver(sessionId);
+  if (!resolved.ok) {
+    return resolved.result;
+  }
+  const { driver } = resolved;
+
+  const params = keys && keys.length > 0 ? { keys } : {};
+  await execute(driver, 'mobile: hideKeyboard', params);
+  return textResult('Keyboard dismissed successfully.');
+}
+
+async function handleIsShown(sessionId?: string): Promise<ContentResult> {
+  const resolved = resolveDriver(sessionId);
+  if (!resolved.ok) {
+    return resolved.result;
+  }
+  const { driver } = resolved;
+
+  const keyboardShown = await execute(driver, 'mobile: isKeyboardShown', {});
+  return textResult(JSON.stringify({ keyboardShown }, null, 2));
 }

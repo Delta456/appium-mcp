@@ -39,29 +39,6 @@ const METADATA_FIELDS = [
 ] as const;
 
 /**
- * Read capabilities from a WebdriverIO client method when available.
- *
- * @param client - Attached WebdriverIO client for the target Appium session.
- * @param methodName - Capability reader to invoke on the client.
- * @returns Parsed capabilities, or `undefined` when the method is missing or fails.
- */
-async function readClientCapabilities(
-  client: Client,
-  methodName: 'getAppiumSessionCapabilities' | 'getSession'
-): Promise<SessionCapabilities | undefined> {
-  const method = client[methodName];
-  if (typeof method !== 'function') {
-    return undefined;
-  }
-
-  try {
-    return readCapabilities(await method.call(client));
-  } catch {
-    return undefined;
-  }
-}
-
-/**
  * Attach MCP Appium to an existing remote Appium session without taking
  * ownership of the underlying session lifecycle.
  *
@@ -152,5 +129,28 @@ export async function attachSessionAction(args: {
     return errorResult(
       `Failed to attach session ${args.sessionId}. ${toolErrorMessage(err)}`
     );
+  }
+}
+
+/**
+ * Read capabilities from a WebdriverIO client method when available.
+ *
+ * @param client - Attached WebdriverIO client for the target Appium session.
+ * @param methodName - Capability reader to invoke on the client.
+ * @returns Parsed capabilities, or `undefined` when the method is missing or fails.
+ */
+async function readClientCapabilities(
+  client: Client,
+  methodName: 'getAppiumSessionCapabilities' | 'getSession'
+): Promise<SessionCapabilities | undefined> {
+  const method = client[methodName];
+  if (typeof method !== 'function') {
+    return undefined;
+  }
+
+  try {
+    return readCapabilities(await method.call(client));
+  } catch {
+    return undefined;
   }
 }
