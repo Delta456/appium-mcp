@@ -1,5 +1,10 @@
 import { z } from 'zod';
 import { elementUUIDScheme } from '../../schema.js';
+import { isAIEnabled } from '../ai/config.js';
+
+const AI_UUID_HINT = isAIEnabled()
+  ? `Supports AI coordinate UUIDs (format: ai-element:x,y:bbox) returned by appium_ai. `
+  : '';
 
 export const GESTURE_ACTIONS = [
   'tap',
@@ -20,15 +25,15 @@ export const SCROLL_DISTANCE_PRESETS = ['small', 'medium', 'large'] as const;
 export type ScrollDistancePreset = (typeof SCROLL_DISTANCE_PRESETS)[number];
 
 export const LOCATOR_STRATEGIES = [
-  'xpath',
-  'id',
-  'name',
-  'class name',
   'accessibility id',
-  'css selector',
-  '-android uiautomator',
+  'id',
   '-ios predicate string',
   '-ios class chain',
+  '-android uiautomator',
+  'xpath',
+  'name',
+  'class name',
+  'css selector',
 ] as const;
 
 export const gestureSchema = z.object({
@@ -50,7 +55,8 @@ export const gestureSchema = z.object({
   elementUUID: elementUUIDScheme
     .optional()
     .describe(
-      `UUID of the element to act on. Supports AI coordinate UUIDs (format: ai-element:x,y:bbox). ` +
+      `UUID of the element to act on. ` +
+        AI_UUID_HINT +
         `Used by: tap, double_tap, long_press, pinch_zoom. ` +
         `For scroll/swipe, when provided with direction, the gesture is calculated relative to this element instead of the whole screen.`
     ),
@@ -140,7 +146,11 @@ export const gestureSchema = z.object({
   strategy: z
     .enum(LOCATOR_STRATEGIES)
     .optional()
-    .describe(`Locator strategy. Required for: scroll_to_element.`),
+    .describe(
+      `Locator strategy. Required for: scroll_to_element. ` +
+        `Priority: accessibility id > id > platform-native (-ios predicate string / -ios class chain on iOS, -android uiautomator on Android) > xpath (LAST RESORT — slow on iOS XCUITest, brittle) > name > class name > css selector (webview only). ` +
+        `Same ranking as appium_find_element.`
+    ),
   selector: z
     .string()
     .optional()

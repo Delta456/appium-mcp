@@ -146,8 +146,9 @@ This will automatically configure the MCP server for use with Claude Code. Make 
 | `APPIUM_MCP_ON_CLIENT_DISCONNECT` | Optional | Session cleanup when the MCP client disconnects: `delete_all` (default) deletes **MCP-owned** Appium sessions (`safeDeleteAllSessions`); `skip` keeps those sessions across disconnects (e.g. HTTP/stream clients that reconnect). Attached/remote sessions are not removed by this path. See [MCP disconnect behavior](#mcp-disconnect-behavior). |
 | `APPIUM_MCP_WDA_APP_PATH` | Optional | Absolute path to a pre-extracted `WebDriverAgentRunner-Runner.app` bundle. When set, `prepare_ios_simulator` skips all GitHub downloads and uses this bundle directly — useful in environments where external downloads are blocked |
 | `REMOTE_SERVER_URL_ALLOW_REGEX` | Optional | Regex pattern that remote Appium server URLs must match. Defaults to `^https?://` |
-| `AI_VISION_API_BASE_URL` | Required for AI Vision | Base URL of the OpenAI-compatible vision model API |
-| `AI_VISION_API_KEY` | Required for AI Vision | API key for the vision model provider |
+| `AI_VISION_ENABLED` | Optional | Set to `true` to register the `appium_ai` tool (vision-based element finding). When unset or `false`, the AI tool is **not registered** and the LLM has no way to invoke vision-based finding. Requires `AI_VISION_API_BASE_URL` and `AI_VISION_API_KEY` to also be set, otherwise the server fails to start. |
+| `AI_VISION_API_BASE_URL` | Required when `AI_VISION_ENABLED=true` | Base URL of the OpenAI-compatible vision model API |
+| `AI_VISION_API_KEY` | Required when `AI_VISION_ENABLED=true` | API key for the vision model provider |
 | `AI_VISION_MODEL` | Optional | Vision model name (default: `Qwen3-VL-235B-A22B-Instruct`) |
 | `AI_VISION_COORD_TYPE` | Optional | Coordinate type: `normalized` (default) or `absolute` |
 | `AI_VISION_IMAGE_MAX_WIDTH` | Optional | Max image width in pixels before compression (default: `1080`) |
@@ -228,7 +229,9 @@ To start recording, call `appium_screen_recording` with `action="start"`. You ma
 
 ### AI Vision Element Finding
 
-Configure AI-powered element finding using vision models. This feature allows you to locate UI elements using natural language descriptions instead of traditional XPath or ID selectors.
+Configure AI-powered element finding using vision models. When enabled, a separate tool — **`appium_ai`** — is registered alongside `appium_find_element`. It exposes `action=find_element`, which locates UI elements from natural-language descriptions and returns a coordinate UUID (`ai-element:x,y:bbox`) that can be passed to `appium_gesture` (`tap` / `double_tap` / `long_press`).
+
+**This feature is opt-in.** When `AI_VISION_ENABLED` is unset or `false`, the `appium_ai` tool is **not registered** and the LLM has no way to invoke vision-based finding — keeping `appium_find_element` purely traditional. This deliberate gating prevents the model from defaulting to a slow, paid vision call when a stable locator (accessibility id, resource-id, etc.) would do the job.
 
 **Required Environment Variables:**
 
@@ -237,12 +240,15 @@ Configure AI-powered element finding using vision models. This feature allows yo
   "appium-mcp": {
     "env": {
       "ANDROID_HOME": "/path/to/android/sdk",
+      "AI_VISION_ENABLED": "true",
       "AI_VISION_API_BASE_URL": "https://dashscope.aliyuncs.com/compatible-mode/v1",
       "AI_VISION_API_KEY": "your_api_key_here"
     }
   }
 }
 ```
+
+If `AI_VISION_ENABLED=true` is set without both API vars, the server fails to start with a clear error message — misconfiguration is surfaced immediately rather than mid-test.
 
 **Optional Environment Variables:**
 
@@ -365,7 +371,8 @@ The default regex pattern allows any URL that starts with `http://` or `https://
 
 | Tool                  | Description                                                                                  |
 | --------------------- | -------------------------------------------------------------------------------------------- |
-| `appium_find_element` | Find a specific element using traditional locator strategies (xpath, id, accessibility id, etc.) **OR** AI-powered natural language descriptions (e.g., "yellow search button at bottom"). To scroll until an element appears, use **`appium_gesture`** with **`action=scroll_to_element`** (same `strategy` / `selector` as find). |
+| `appium_find_element` | Find a specific element using traditional locator strategies. **Strategy priority**: `accessibility id` > `id` > platform-native (`-ios predicate string` / `-ios class chain` on iOS, `-android uiautomator` on Android) > `xpath` (last resort — slow & brittle). To scroll until an element appears, use **`appium_gesture`** with **`action=scroll_to_element`** (same `strategy` / `selector` as find). |
+| `appium_ai` | **Opt-in (gated by `AI_VISION_ENABLED=true`).** Vision-based element finding — fallback for when traditional locators don't work. `action=find_element` takes a natural-language `instruction` (e.g., "yellow search button at bottom") and returns a coordinate UUID consumable by **`appium_gesture`** (`tap` / `double_tap` / `long_press`). See [AI Vision Element Finding](#ai-vision-element-finding) for setup. |
 | `appium_gesture`      | Perform a touch gesture. `action` = `tap`, `double_tap`, `long_press`, `scroll`, `swipe`, `pinch_zoom`, or **`scroll_to_element`**. **`scroll_to_element`** scrolls vertically (`direction` = `up` \| `down`) until the locator matches, **page source stops changing** after a scroll (end of list), or **`maxScrollAttempts`** (default 10, max 80). Optional **`scrollDistance`** (0.05–1) or **`scrollDistancePreset`** = `small` \| `medium` \| `large`. Supports element UUIDs and raw coordinates for other actions. For swipe, use `speed` = `slow` \| `normal` \| `fast` (fast for pull-to-refresh). |
 | `appium_drag_and_drop` | Perform a drag and drop gesture from a source location to a target location (supports element-to-element, element-to-coordinates, coordinates-to-element, and coordinates-to-coordinates) |
 | `appium_perform_actions` | Execute raw W3C Actions API sequences for custom multi-touch gestures (rotate, three-finger swipe, edge swipes, precise timing). Prefer `appium_gesture` for standard gestures. |
@@ -430,7 +437,22 @@ This example demonstrates a complete e-commerce checkout flow that can be automa
 
 ### AI-Powered Element Finding Examples
 
-**Traditional Mode (XPath/ID):**
+**Traditional Mode — prefer stable identifiers:**
+
+Try strategies in priority order: `accessibility id` first, then `id`, then platform-native predicates (`-ios predicate string` / `-ios class chain` on iOS, `-android uiautomator` on Android). Reach for `xpath` only when nothing more stable exists.
+
+```json
+{
+  "tool": "appium_find_element",
+  "arguments": {
+    "strategy": "accessibility id",
+    "selector": "search-button"
+  }
+}
+```
+
+`xpath` fallback (when no accessibility id, resource-id, or platform-native predicate works):
+
 ```json
 {
   "tool": "appium_find_element",
@@ -458,29 +480,43 @@ This example demonstrates a complete e-commerce checkout flow that can be automa
 
 Use **`scrollDistance`** (0.05–1) instead of **`scrollDistancePreset`** when you want an exact fraction. Then call **`appium_find_element`** with the same `strategy` / `selector` to obtain the element id.
 
-**AI Mode (Natural Language):**
+**AI Mode (Natural Language) — requires `AI_VISION_ENABLED=true`:**
+
+When the AI tool is enabled, use **`appium_ai`** (not `appium_find_element`) for vision-based finding:
+
 ```json
 {
-  "tool": "appium_find_element",
+  "tool": "appium_ai",
   "arguments": {
-    "strategy": "ai_instruction",
-    "ai_instruction": "yellow search button at the bottom of the screen"
+    "action": "find_element",
+    "instruction": "yellow search button at the bottom of the screen"
   }
 }
 ```
 
-**More AI Mode Examples:**
+The returned UUID (`ai-element:x,y:bbox`) flows directly into `appium_gesture`:
+
+```json
+{
+  "tool": "appium_gesture",
+  "arguments": {
+    "action": "tap",
+    "elementUUID": "ai-element:540,2280:480,2240,600,2320"
+  }
+}
+```
+
+**More instruction examples:**
 - `"username input field at top"`
 - `"settings icon in top-right corner"`
 - `"red delete button next to the item"`
 - `"blue submit button at bottom"`
 - `"profile picture in navigation bar"`
 
-**Benefits of AI Mode:**
-- **No Complex Selectors**: Describe elements in plain language
-- **Resilient to UI Changes**: Semantic understanding adapts to layout changes
-- **Faster Development**: No need to inspect element hierarchies
-- **Works Across Languages**: Describe in any language you're comfortable with
+**When to reach for `appium_ai` vs `appium_find_element`:**
+- **Prefer `appium_find_element`** whenever a stable accessibility id, resource-id, or unique text exists — faster, free, deterministic.
+- **Use `appium_ai`** only when the element has no stable identifier, the page source is unavailable, or you must locate by visual cues (color, position, icon).
+- See [AI Vision Element Finding](#ai-vision-element-finding) for setup and configuration.
 
 ### Working in Your Native Language
 
