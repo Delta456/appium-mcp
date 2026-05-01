@@ -1,3 +1,9 @@
+## [1.72.1](https://github.com/appium/appium-mcp/compare/v1.72.0...v1.72.1) (2026-05-01)
+
+### Bug Fixes
+
+* **find-elements:** gate ai instructions behind a config env ([#309](https://github.com/appium/appium-mcp/issues/309)) ([07f1b22](https://github.com/appium/appium-mcp/commit/07f1b22d070c8c541df887ef6502c36e70f307c3))
+
 ## [1.72.0](https://github.com/appium/appium-mcp/compare/v1.71.6...v1.72.0) (2026-05-01)
 
 ### Features
