@@ -1,3 +1,9 @@
+## [1.72.0](https://github.com/appium/appium-mcp/compare/v1.71.6...v1.72.0) (2026-05-01)
+
+### Features
+
+* add APPIUM_MCP_ON_CLIENT_DISCONNECT toggle ([#306](https://github.com/appium/appium-mcp/issues/306)) ([b77cae4](https://github.com/appium/appium-mcp/commit/b77cae4fe6753599f4c04cfedbb6e1b362c23ed2))
+
 ## [1.71.6](https://github.com/appium/appium-mcp/compare/v1.71.5...v1.71.6) (2026-05-01)
 
 ### Bug Fixes
