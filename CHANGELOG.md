@@ -1,3 +1,9 @@
+## [1.72.4](https://github.com/appium/appium-mcp/compare/v1.72.3...v1.72.4) (2026-05-02)
+
+### Miscellaneous Chores
+
+* **server:** expand MCP instructions and sync FastMCP version ([#313](https://github.com/appium/appium-mcp/issues/313)) ([5bec5df](https://github.com/appium/appium-mcp/commit/5bec5df45deb8e157a0b534f22788ee2cdffe946))
+
 ## [1.72.3](https://github.com/appium/appium-mcp/compare/v1.72.2...v1.72.3) (2026-05-02)
 
 ### Bug Fixes
