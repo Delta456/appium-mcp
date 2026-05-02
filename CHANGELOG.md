@@ -1,3 +1,9 @@
+## [1.72.3](https://github.com/appium/appium-mcp/compare/v1.72.2...v1.72.3) (2026-05-02)
+
+### Bug Fixes
+
+* **scroll:** flip scroll for android ([#312](https://github.com/appium/appium-mcp/issues/312)) ([e0708f7](https://github.com/appium/appium-mcp/commit/e0708f7f2463f3f92b9abb2404ee9322f289a47a))
+
 ## [1.72.2](https://github.com/appium/appium-mcp/compare/v1.72.1...v1.72.2) (2026-05-02)
 
 ### Bug Fixes
