@@ -1,3 +1,9 @@
+## [1.72.2](https://github.com/appium/appium-mcp/compare/v1.72.1...v1.72.2) (2026-05-02)
+
+### Bug Fixes
+
+* **prepare-ios-real-device:** enhance handling of wildcard provisioning profiles and improve signing process ([#315](https://github.com/appium/appium-mcp/issues/315)) ([404e715](https://github.com/appium/appium-mcp/commit/404e71598906899a16df5bce26954bbddcff87bb))
+
 ## [1.72.1](https://github.com/appium/appium-mcp/compare/v1.72.0...v1.72.1) (2026-05-01)
 
 ### Bug Fixes
