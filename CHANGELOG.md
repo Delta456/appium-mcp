@@ -1,3 +1,9 @@
+## [1.72.6](https://github.com/appium/appium-mcp/compare/v1.72.5...v1.72.6) (2026-05-04)
+
+### Bug Fixes
+
+* **session:** improve capabilities handling for wider LLMs ([#316](https://github.com/appium/appium-mcp/issues/316)) ([c18f35d](https://github.com/appium/appium-mcp/commit/c18f35d33de4580538a5e02d489e50ce4b79577e))
+
 ## [1.72.5](https://github.com/appium/appium-mcp/compare/v1.72.4...v1.72.5) (2026-05-03)
 
 ### Miscellaneous Chores
