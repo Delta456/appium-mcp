@@ -1,3 +1,9 @@
+## [1.72.8](https://github.com/appium/appium-mcp/compare/v1.72.7...v1.72.8) (2026-05-05)
+
+### Miscellaneous Chores
+
+* **all:** use textResult and errorResult where required  ([#319](https://github.com/appium/appium-mcp/issues/319)) ([2a82231](https://github.com/appium/appium-mcp/commit/2a822310c84b24c22dbbc3f044a4e64d09a6db1b))
+
 ## [1.72.7](https://github.com/appium/appium-mcp/compare/v1.72.6...v1.72.7) (2026-05-05)
 
 ### Miscellaneous Chores
