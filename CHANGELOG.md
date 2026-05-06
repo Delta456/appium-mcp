@@ -1,3 +1,9 @@
+## [1.72.9](https://github.com/appium/appium-mcp/compare/v1.72.8...v1.72.9) (2026-05-06)
+
+### Miscellaneous Chores
+
+* bump version to 1.72.9 ([#323](https://github.com/appium/appium-mcp/issues/323)) ([0bee97b](https://github.com/appium/appium-mcp/commit/0bee97b8e376cb1918c8fef07561a29f6041fd36))
+
 ## [1.72.8](https://github.com/appium/appium-mcp/compare/v1.72.7...v1.72.8) (2026-05-05)
 
 ### Miscellaneous Chores
