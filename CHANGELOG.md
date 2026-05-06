@@ -1,3 +1,9 @@
+## [1.72.10](https://github.com/appium/appium-mcp/compare/v1.72.9...v1.72.10) (2026-05-06)
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump lint-staged from 16.4.0 to 17.0.2 ([#324](https://github.com/appium/appium-mcp/issues/324)) ([e14de8c](https://github.com/appium/appium-mcp/commit/e14de8cc600d5715418dc2fcd86aee1bc67dedce))
+
 ## [1.72.9](https://github.com/appium/appium-mcp/compare/v1.72.8...v1.72.9) (2026-05-06)
 
 ### Miscellaneous Chores
