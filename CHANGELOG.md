@@ -1,3 +1,9 @@
+## [1.72.12](https://github.com/appium/appium-mcp/compare/v1.72.11...v1.72.12) (2026-05-07)
+
+### Miscellaneous Chores
+
+* **lint:** fix preserve-caught-error and type-only imports across src/ ([#325](https://github.com/appium/appium-mcp/issues/325)) ([b543f6a](https://github.com/appium/appium-mcp/commit/b543f6afb8a07ccc0fb23e94b99b51d7aa695f07))
+
 ## [1.72.11](https://github.com/appium/appium-mcp/compare/v1.72.10...v1.72.11) (2026-05-06)
 
 ### Bug Fixes
