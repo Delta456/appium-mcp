@@ -8,10 +8,9 @@ import {
   domToXML,
   findDOMNodeByPath,
   xmlToDOM,
-  JSONElement,
-  ElementAttributes,
 } from './source-parsing.js';
-import {
+import type { JSONElement, ElementAttributes } from './source-parsing.js';
+import type {
   Document as XMLDocument,
   Node as XMLNode,
   Element as XMLElement,
@@ -555,7 +554,7 @@ function determineXpathUniqueness(
   doc: XMLDocument,
   domNode: XMLNode
 ): [boolean, number?] {
-  let othersWithAttr: XMLNode[] = [];
+  let othersWithAttr: XMLNode[];
 
   // If the XPath does not parse, move to the next unique attribute
   try {
