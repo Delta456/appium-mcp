@@ -1,3 +1,9 @@
+## [1.72.13](https://github.com/appium/appium-mcp/compare/v1.72.12...v1.72.13) (2026-05-08)
+
+### Bug Fixes
+
+* **session:** point stale create_session prompts to appium_session_management ([#326](https://github.com/appium/appium-mcp/issues/326)) ([9e520fe](https://github.com/appium/appium-mcp/commit/9e520fe0af6271a2ebe6fd45343a15d163b041c0))
+
 ## [1.72.12](https://github.com/appium/appium-mcp/compare/v1.72.11...v1.72.12) (2026-05-07)
 
 ### Miscellaneous Chores
