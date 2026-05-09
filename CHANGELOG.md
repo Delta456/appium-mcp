@@ -1,3 +1,9 @@
+## [1.72.14](https://github.com/appium/appium-mcp/compare/v1.72.13...v1.72.14) (2026-05-09)
+
+### Miscellaneous Chores
+
+* tune the default caps ([#327](https://github.com/appium/appium-mcp/issues/327)) ([1722f58](https://github.com/appium/appium-mcp/commit/1722f58e2ecdc54506a2db768e8f9fffaecb0790))
+
 ## [1.72.13](https://github.com/appium/appium-mcp/compare/v1.72.12...v1.72.13) (2026-05-08)
 
 ### Bug Fixes
