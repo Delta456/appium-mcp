@@ -1,3 +1,5 @@
+## [1.88.3](https://github.com/appium/appium-mcp/compare/v1.88.2...v1.88.3) (2026-07-25)
+
 ## [1.88.2](https://github.com/appium/appium-mcp/compare/v1.88.1...v1.88.2) (2026-07-25)
 
 ## [1.88.1](https://github.com/appium/appium-mcp/compare/v1.88.0...v1.88.1) (2026-07-25)
