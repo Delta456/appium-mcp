@@ -1,3 +1,9 @@
+## [1.88.4](https://github.com/appium/appium-mcp/compare/v1.88.3...v1.88.4) (2026-07-25)
+
+### Miscellaneous Chores
+
+* migrate lint/format to appium's ones ([#474](https://github.com/appium/appium-mcp/issues/474)) ([2a25edc](https://github.com/appium/appium-mcp/commit/2a25edcd3d8f7b466ef3bad578850f89fe3f3b50))
+
 ## [1.88.3](https://github.com/appium/appium-mcp/compare/v1.88.2...v1.88.3) (2026-07-25)
 
 ## [1.88.2](https://github.com/appium/appium-mcp/compare/v1.88.1...v1.88.2) (2026-07-25)
