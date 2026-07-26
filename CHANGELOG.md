@@ -1,3 +1,9 @@
+## [1.89.0](https://github.com/appium/appium-mcp/compare/v1.88.5...v1.89.0) (2026-07-26)
+
+### Features
+
+* add payload-free tool result size telemetry ([#476](https://github.com/appium/appium-mcp/issues/476)) ([ca0262d](https://github.com/appium/appium-mcp/commit/ca0262d38a18747f08c1f08c94099c7b82150272))
+
 ## [1.88.5](https://github.com/appium/appium-mcp/compare/v1.88.4...v1.88.5) (2026-07-26)
 
 ### Performance Improvements
