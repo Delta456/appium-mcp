@@ -1,3 +1,9 @@
+## [1.88.5](https://github.com/appium/appium-mcp/compare/v1.88.4...v1.88.5) (2026-07-26)
+
+### Performance Improvements
+
+* cap tool discovery at 45k characters ([#475](https://github.com/appium/appium-mcp/issues/475)) ([2624412](https://github.com/appium/appium-mcp/commit/2624412367e5a2e4cd5ababc15a9fb4c2ffc25c9))
+
 ## [1.88.4](https://github.com/appium/appium-mcp/compare/v1.88.3...v1.88.4) (2026-07-25)
 
 ### Miscellaneous Chores
