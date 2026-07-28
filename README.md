@@ -149,6 +149,7 @@ This will automatically configure the MCP server for use with Claude Code. Make 
 | `CAPABILITIES_CONFIG`                     | Optional                               | Absolute path to a `capabilities.json` file with per-platform capability presets                                                                                                                                                                                                                                                                   |
 | `SCREENSHOTS_DIR`                         | Optional                               | Directory where screenshots and screen recordings are saved. Defaults to the current working directory                                                                                                                                                                                                                                             |
 | `NO_UI`                                   | Optional                               | Set to `true` or `1` to disable HTML UI components — faster responses, fewer tokens. See [NO_UI Mode](#no_ui-mode)                                                                                                                                                                                                                                 |
+| `APPIUM_MCP_APPS_ENABLED`                 | Optional                               | MCP Apps static UI mode. Enabled by default. Set to `false` or `0` to force the embedded UI compatibility fallback. See [MCP Apps Mode](#mcp-apps-mode)                                                                                                                                                                                            |
 | `APPIUM_MCP_ON_CLIENT_DISCONNECT`         | Optional                               | Session cleanup when the MCP client disconnects: `delete_all` (default) deletes **MCP-owned** Appium sessions (`safeDeleteAllSessions`); `skip` keeps those sessions across disconnects (e.g. HTTP/stream clients that reconnect). Attached/remote sessions are not removed by this path. See [MCP disconnect behavior](#mcp-disconnect-behavior). |
 | `APPIUM_MCP_WDA_APP_PATH`                 | Optional                               | Absolute path to a pre-extracted `WebDriverAgentRunner-Runner.app` bundle. When set, `prepare_ios_simulator` skips all GitHub downloads and uses this bundle directly — useful in environments where external downloads are blocked                                                                                                                |
 | `REMOTE_SERVER_URL_ALLOW_REGEX`           | Optional                               | Regex pattern that remote Appium server URLs must match. Defaults to `^https?://`                                                                                                                                                                                                                                                                  |
@@ -327,6 +328,30 @@ More models benchmarked can be found [here](src/tests/benchmark_model/TEST_REPOR
 - **Coordinate Handling**: In `normalized` mode (default), the model returns 0–1000 range coordinates that are automatically scaled to absolute pixel coordinates using the original image dimensions — independent of any image compression. In `absolute` mode, image resizing is disabled so the model's returned pixel coordinates always map directly to the original screen dimensions.
 
 ### Performance Optimization
+
+#### MCP Apps Mode
+
+`appium_get_page_source` uses a static MCP App inspector by default when the client advertises MCP Apps support.
+The XML remains in the normal text result for the LLM, while the inspector reads that same result instead of
+receiving a duplicated XML copy.
+
+For clients with unreliable MCP Apps rendering, set `APPIUM_MCP_APPS_ENABLED` to `false` or `0`:
+
+```json
+{
+  "appium-mcp": {
+    "env": {
+      "APPIUM_MCP_APPS_ENABLED": "false"
+    }
+  }
+}
+```
+
+This keeps interactive UI enabled but forces the previous embedded page-source inspector. The compatibility mode
+duplicates the XML inside the inspector HTML and therefore uses more result tokens and bandwidth. With a synthetic
+95,000-character page source, the static mode reduced the result from approximately 267 KB to 95 KB (about 64%).
+
+`NO_UI=true` or `NO_UI=1` takes precedence over this setting and disables both static and embedded UI.
 
 #### NO_UI Mode
 
