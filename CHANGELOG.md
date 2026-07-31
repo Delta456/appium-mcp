@@ -1,3 +1,9 @@
+## [1.91.0](https://github.com/appium/appium-mcp/compare/v1.90.1...v1.91.0) (2026-07-31)
+
+### Features
+
+* avoid duplicate screenshot and locator UI payloads ([#478](https://github.com/appium/appium-mcp/issues/478)) ([562e84e](https://github.com/appium/appium-mcp/commit/562e84e58063d071bb46d9e1c2fe093b50f30a88))
+
 ## [1.90.1](https://github.com/appium/appium-mcp/compare/v1.90.0...v1.90.1) (2026-07-29)
 
 ### Miscellaneous Chores
