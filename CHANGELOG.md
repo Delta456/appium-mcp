@@ -1,3 +1,9 @@
+## [1.92.0](https://github.com/appium/appium-mcp/compare/v1.91.0...v1.92.0) (2026-08-07)
+
+### Features
+
+* use xcrun simctl spawn uname to get the simulator architecture ([#484](https://github.com/appium/appium-mcp/issues/484)) ([33ffb8a](https://github.com/appium/appium-mcp/commit/33ffb8ae2c87631b341933916bdb5a45b8dcd44c))
+
 ## [1.91.0](https://github.com/appium/appium-mcp/compare/v1.90.1...v1.91.0) (2026-07-31)
 
 ### Features
