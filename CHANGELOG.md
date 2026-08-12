@@ -1,3 +1,9 @@
+## [1.92.1](https://github.com/appium/appium-mcp/compare/v1.92.0...v1.92.1) (2026-08-12)
+
+### Bug Fixes
+
+* **context:** surface driver errors instead of empty context list ([#485](https://github.com/appium/appium-mcp/issues/485)) ([0edcea8](https://github.com/appium/appium-mcp/commit/0edcea8989e7b835b38125172aa01efa70b6f319))
+
 ## [1.92.0](https://github.com/appium/appium-mcp/compare/v1.91.0...v1.92.0) (2026-08-07)
 
 ### Features
