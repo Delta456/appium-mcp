@@ -1,3 +1,9 @@
+## [1.92.2](https://github.com/appium/appium-mcp/compare/v1.92.1...v1.92.2) (2026-08-13)
+
+### Bug Fixes
+
+* list apps ([#487](https://github.com/appium/appium-mcp/issues/487)) ([469edb1](https://github.com/appium/appium-mcp/commit/469edb11a0a1b64aaaee5e5ca29361a357668950))
+
 ## [1.92.1](https://github.com/appium/appium-mcp/compare/v1.92.0...v1.92.1) (2026-08-12)
 
 ### Bug Fixes
