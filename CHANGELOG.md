@@ -1,3 +1,9 @@
+## [1.92.3](https://github.com/appium/appium-mcp/compare/v1.92.2...v1.92.3) (2026-08-15)
+
+### Bug Fixes
+
+* **app-management:** resolve app names against rehydrated sessions ([#488](https://github.com/appium/appium-mcp/issues/488)) ([f268e87](https://github.com/appium/appium-mcp/commit/f268e87ec871b7a39fee1553c2c652799d5210b8))
+
 ## [1.92.2](https://github.com/appium/appium-mcp/compare/v1.92.1...v1.92.2) (2026-08-13)
 
 ### Bug Fixes
