@@ -1,3 +1,9 @@
+## [1.92.4](https://github.com/appium/appium-mcp/compare/v1.92.3...v1.92.4) (2026-08-16)
+
+### Bug Fixes
+
+* **app-management:** surface app list failures instead of caching an empty list ([#489](https://github.com/appium/appium-mcp/issues/489)) ([f2d38a4](https://github.com/appium/appium-mcp/commit/f2d38a467ddd8845d8aed4908875066e0d2dea18))
+
 ## [1.92.3](https://github.com/appium/appium-mcp/compare/v1.92.2...v1.92.3) (2026-08-15)
 
 ### Bug Fixes
