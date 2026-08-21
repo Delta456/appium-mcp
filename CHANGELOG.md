@@ -1,3 +1,9 @@
+## [1.92.5](https://github.com/appium/appium-mcp/compare/v1.92.4...v1.92.5) (2026-08-21)
+
+### Bug Fixes
+
+* **locator:** prefer accessibility id ([#490](https://github.com/appium/appium-mcp/issues/490)) ([026c016](https://github.com/appium/appium-mcp/commit/026c01612f316f860dcafb5b0b461c9ef1adb63a))
+
 ## [1.92.4](https://github.com/appium/appium-mcp/compare/v1.92.3...v1.92.4) (2026-08-16)
 
 ### Bug Fixes
